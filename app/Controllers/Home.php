@@ -7,7 +7,8 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+		$estructura=view('estructura/header').view('estructura/body');
+		return $estructura;
 	}
 
 	//--------------------------------------------------------------------
