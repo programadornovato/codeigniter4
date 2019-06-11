@@ -6,7 +6,9 @@
 		<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 	</head>
 	<body>
-
+		<?php
+		echo "base_url=".base_url();
+		?>
 		<style {csp-style-nonce}>
 			div.logo {
 				height: 200px;
