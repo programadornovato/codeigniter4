@@ -1,4 +1,4 @@
 <body>
-    Hola mundo desde programadornovato.com <?php echo resta(2,1); ?>
+    Hola  <?php echo $email; ?>
 </body>
 </html>
