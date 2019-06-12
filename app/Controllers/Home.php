@@ -8,9 +8,14 @@ class Home extends BaseController
 	public function index()
 	{
 		$userModel=new UserModel($db);
-		$user=$userModel->find('1');
-		var_dump($user);
-		$estructura=view('estructura/header').view('estructura/body',$user);
+		//$users=$userModel->find([1,2]);
+		//$users=$userModel->findAll();
+		//$users=$userModel->where('name','maria')->findAll();
+		//$users=$userModel->findAll(2,3);
+		//$users=$userModel->withDeleted()->findAll();
+		$users=$userModel->onlyDeleted()->findAll();
+		$users=array('users'=>$users);
+		$estructura=view('estructura/header').view('estructura/body',$users);
 		return $estructura;
 	}
 
