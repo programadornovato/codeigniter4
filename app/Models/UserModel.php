@@ -26,4 +26,10 @@ class UserModel extends Model
                 ]
         ];
         protected $skipValidation     = false;
+        protected $beforeInsert=['agregaAlgoName'];
+        protected $beforeUpdate=['agregaAlgoName'];
+        protected function agregaAlgoName(array $data){
+                $data['data']['name']=$data['data']['name']." algo";
+                return $data;
+        }
 }
