@@ -40,15 +40,17 @@ class Home extends BaseController
 			'email'=>"programador11@hotmail.com"
 		];
 		$userModel->save($data);
-		*/
+		
 		$data=[
 			'id'=>"12",
 			'name'=>"programador yo tambien",
 			'email'=>"programadorto@hotmail.com"
 		];
 		$userModel->save($data);
-
-
+		*/
+		//$userModel->delete([2,4,5]);
+		//$userModel->where('id',10)->delete();
+		$userModel->purgeDeleted();
 
 		$users=$userModel->findAll();
 		$users=array('users'=>$users);
