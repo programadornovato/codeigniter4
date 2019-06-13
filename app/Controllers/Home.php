@@ -50,7 +50,15 @@ class Home extends BaseController
 		*/
 		//$userModel->delete([2,4,5]);
 		//$userModel->where('id',10)->delete();
-		$userModel->purgeDeleted();
+		//$userModel->purgeDeleted();
+
+		$data=[
+			'name'=>"programadorvalido",
+			'email'=>"programador@hotmail.com"
+		];
+		if($userModel->save($data)===false){
+			var_dump($userModel->errors());
+		}
 
 		$users=$userModel->findAll();
 		$users=array('users'=>$users);
