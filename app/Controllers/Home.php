@@ -8,6 +8,22 @@ class Home extends BaseController
 	public function __construct(){
 		helper('form');
 	}
+	public function guarda(){
+		$userModel=new UserModel($db);
+		$request= \Config\Services::request();
+		$data=array(
+			'name'=>$request->getPostGet('name'),
+			'email'=>$request->getPostGet('email'),
+		);
+		if($userModel->insert($data)===false){
+			var_dump($userModel->errors());
+		}
+		$users=$userModel->findAll();
+		$users=array('users'=>$users);
+		$estructura=view('estructura/header').view('estructura/body',$users);
+		return $estructura;
+
+	}
 	public function formulario(){
 		$estructura=view('estructura/header').view('estructura/formulario');
 		return $estructura;
