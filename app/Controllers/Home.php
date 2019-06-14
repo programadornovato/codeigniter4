@@ -5,6 +5,13 @@ use App\Models\UserModel;
 
 class Home extends BaseController
 {
+	public function __construct(){
+		helper('form');
+	}
+	public function formulario(){
+		$estructura=view('estructura/header').view('estructura/formulario');
+		return $estructura;
+	}
 	public function index()
 	{
 		$userModel=new UserModel($db);
@@ -51,7 +58,7 @@ class Home extends BaseController
 		//$userModel->delete([2,4,5]);
 		//$userModel->where('id',10)->delete();
 		//$userModel->purgeDeleted();
-		
+		/*
 		$data=[
 			'name'=>"programadorvalido nuevo 2",
 			'email'=>"programadornuevo2@hotmail.com"
@@ -59,7 +66,7 @@ class Home extends BaseController
 		if($userModel->save($data)===false){
 			var_dump($userModel->errors());
 		}
-		
+		*/
 		/*
 		$users=$userModel->asArray()->where('name','programador11')
 		->orderBy('id','asc')
