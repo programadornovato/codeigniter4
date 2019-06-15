@@ -15,15 +15,36 @@ class Home extends BaseController
 			'name'=>$request->getPostGet('name'),
 			'email'=>$request->getPostGet('email'),
 		);
-		if($userModel->insert($data)===false){
+		if($request->getPostGet('id')){
+			$data['id']=$request->getPostGet('id');
+		}
+		if($userModel->save($data)===false){
 			var_dump($userModel->errors());
 		}
-		$users=$userModel->findAll();
-		$users=array('users'=>$users);
-		$estructura=view('estructura/header').view('estructura/body',$users);
+		if($request->getPostGet('id')){
+			$users=$userModel->find([$request->getPostGet('id')]);
+			$users=array('users'=>$users);
+			$estructura=view('estructura/header').view('estructura/formulario',$users);	
+		}
+		else{
+			$users=$userModel->findAll();
+			$users=array('users'=>$users);
+			$estructura=view('estructura/header').view('estructura/body',$users);
+		}
 		return $estructura;
 
 	}
+	public function editar(){
+		$userModel=new UserModel($db);
+		$request= \Config\Services::request();
+		$id=$request->getPostGet('id');
+		$users=$userModel->find([$id]);
+		$users=array('users'=>$users);
+		$estructura=view('estructura/header').view('estructura/formulario',$users);
+		return $estructura;
+
+	}
+
 	public function formulario(){
 		$estructura=view('estructura/header').view('estructura/formulario');
 		return $estructura;
