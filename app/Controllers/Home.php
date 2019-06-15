@@ -44,6 +44,17 @@ class Home extends BaseController
 		return $estructura;
 
 	}
+	public function borrar(){
+		$userModel=new UserModel($db);
+		$request= \Config\Services::request();
+		$id=$request->getPostGet('id');
+		$userModel->delete($id);
+		$users=$userModel->findAll();
+		$users=array('users'=>$users);
+		$estructura=view('estructura/header').view('estructura/body',$users);
+		return $estructura;
+
+	}
 
 	public function formulario(){
 		$estructura=view('estructura/header').view('estructura/formulario');

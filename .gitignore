@@ -19,3 +19,4 @@ application/logs/*
 /vendor/
 /nbproject/private/
 /nbproject/
+*.json

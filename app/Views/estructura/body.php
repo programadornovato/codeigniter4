@@ -24,8 +24,8 @@
             echo "<td>";
             ?>
             <a href="<?php echo base_url(); ?>home/editar?id=<?php echo $user['id']; ?>" class="btn btn-warning" role="button" ><i class="fa fa-pencil-square-o"></i></a>
+            <a href="<?php echo base_url(); ?>home/borrar?id=<?php echo $user['id']; ?>" class="btn btn-danger" role="button" ><i class="fa fa-trash"></i></a>
             <?php
-            echo form_button(array('name'=>'borrar','type'=>'submit','class'=>'btn btn-danger','content'=>'<i class="fa fa-trash"></i>'));
             echo "</td>";
             echo "</tr>";
         }
