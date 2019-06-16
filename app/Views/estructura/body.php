@@ -23,8 +23,8 @@
             echo "<td>".$user['deleted']."</td>";
             echo "<td>";
             ?>
-            <a href="<?php echo base_url(); ?>micontrolador/editar?id=<?php echo $user['id']; ?>" class="btn btn-warning" role="button" ><i class="fa fa-pencil-square-o"></i></a>
-            <a href="<?php echo base_url(); ?>micontrolador/borrar?id=<?php echo $user['id']; ?>" class="btn btn-danger" role="button" ><i class="fa fa-trash"></i></a>
+            <a href="<?php echo base_url(); ?>micontrolador/editar/<?php echo $user['id']; ?>" class="btn btn-warning" role="button" ><i class="fa fa-pencil-square-o"></i></a>
+            <a href="<?php echo base_url(); ?>micontrolador/borrar/<?php echo $user['id']; ?>" class="btn btn-danger" role="button" ><i class="fa fa-trash"></i></a>
             <?php
             echo "</td>";
             echo "</tr>";

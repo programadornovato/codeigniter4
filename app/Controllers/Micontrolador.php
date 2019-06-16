@@ -37,7 +37,11 @@ class Micontrolador extends BaseController
 	public function editar(){
 		$userModel=new UserModel($db);
 		$request= \Config\Services::request();
-		$id=$request->getPostGet('id');
+		if($request->getPostGet('id')){
+			$id=$request->getPostGet('id');
+		}else{
+			$id=$request->uri->getSegment(3);
+		}
 		$users=$userModel->find([$id]);
 		$users=array('users'=>$users);
 		$estructura=view('estructura/header').view('estructura/formulario',$users);
@@ -47,7 +51,11 @@ class Micontrolador extends BaseController
 	public function borrar(){
 		$userModel=new UserModel($db);
 		$request= \Config\Services::request();
-		$id=$request->getPostGet('id');
+		if($request->getPostGet('id')){
+			$id=$request->getPostGet('id');
+		}else{
+			$id=$request->uri->getSegment(3);
+		}
 		$userModel->delete($id);
 		$users=$userModel->findAll();
 		$users=array('users'=>$users);
@@ -62,7 +70,6 @@ class Micontrolador extends BaseController
 	}
 	public function index()
 	{
-		echo "Micontrolador";
 		$userModel=new UserModel($db);
 		//$users=$userModel->find([1,2]);
 		//$users=$userModel->findAll();
