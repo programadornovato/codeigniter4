@@ -1,7 +1,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <a href="<?php echo base_url(); ?>home/formulario" class="btn btn-info" role="button" >Nuevo</a>
+        <a href="<?php echo base_url(); ?>nuevo" class="btn btn-info" role="button" >Nuevo</a>
     </div>
     <div class="row">
 
@@ -23,8 +23,8 @@
             echo "<td>".$user['deleted']."</td>";
             echo "<td>";
             ?>
-            <a href="<?php echo base_url(); ?>home/editar?id=<?php echo $user['id']; ?>" class="btn btn-warning" role="button" ><i class="fa fa-pencil-square-o"></i></a>
-            <a href="<?php echo base_url(); ?>home/borrar?id=<?php echo $user['id']; ?>" class="btn btn-danger" role="button" ><i class="fa fa-trash"></i></a>
+            <a href="<?php echo base_url(); ?>micontrolador/editar?id=<?php echo $user['id']; ?>" class="btn btn-warning" role="button" ><i class="fa fa-pencil-square-o"></i></a>
+            <a href="<?php echo base_url(); ?>micontrolador/borrar?id=<?php echo $user['id']; ?>" class="btn btn-danger" role="button" ><i class="fa fa-trash"></i></a>
             <?php
             echo "</td>";
             echo "</tr>";

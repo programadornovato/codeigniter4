@@ -3,7 +3,7 @@
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 
-class Home extends BaseController
+class Micontrolador extends BaseController
 {
 	public function __construct(){
 		helper('form');
@@ -62,7 +62,7 @@ class Home extends BaseController
 	}
 	public function index()
 	{
-		echo "Home";
+		echo "Micontrolador";
 		$userModel=new UserModel($db);
 		//$users=$userModel->find([1,2]);
 		//$users=$userModel->findAll();
