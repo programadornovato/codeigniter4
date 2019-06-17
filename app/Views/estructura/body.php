@@ -1,3 +1,7 @@
+<?php
+echo $cabecera;
+//echo view('estructura/header');
+?>
 <body>
 <div class="container">
     <div class="row">
