@@ -1,8 +1,3 @@
-<?php
-//echo $cabecera;
-//echo view('estructura/header');
-?>
-<?= $cabecera; ?>
 <body>
 <div class="container">
     <div class="row">
@@ -35,6 +30,7 @@
             <?php endforeach; ?>
         <? endif; ?>
         </table>
+        <?php echo $paginador->links(); ?>
     </div>
 </div>
 </body>

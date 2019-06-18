@@ -71,9 +71,11 @@ class Micontrolador extends BaseController
 	public function index()
 	{
 		$userModel=new UserModel($db);
-		$datos=$userModel->findAll();
-		$datos=array('users'=>$datos,'cabecera'=>view('estructura/header'));
-		$estructura=view('estructura/body',$datos);
+		$datos=$userModel->paginate(10);
+		$paginador=$userModel->pager;
+		$paginador->setPath('ci4/');
+		$datos=array('users'=>$datos,'paginador'=>$paginador);
+		$estructura=view('estructura/header').view('estructura/body',$datos);
 		return $estructura;
 		
 	}
