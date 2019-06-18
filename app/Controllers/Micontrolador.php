@@ -4,10 +4,40 @@ use CodeIgniter\Controller;
 use App\Models\UserModel;
 
 class Micontrolador extends BaseController
-{
+{	
+	public $session=null;
 	public function __construct(){
 		helper('form');
+		$this->session= \Config\Services::session();
 	}
+
+	public function ponerDatos(){
+		$newdata=[
+			'name'=>'novato',
+			'email'=>'info@programadornovato.com',
+			'login'=>TRUE,
+		];
+		$this->session->set($newdata);
+		echo $this->session->get('email');
+	}
+	public function leerDatos(){
+		if($this->session->has('name')){
+			echo "name=".$this->session->get('name')."<br>";
+			echo "email=".$this->session->get('email')."<br>";
+			echo "login=".$this->session->get('login')."<br>";
+		}
+		else{
+			echo "No hay datos";
+		}
+	}
+	public function quitarDatos(){
+		$this->session->remove('email');
+	}
+	public function destruirDatos(){
+		$this->session->destroy();
+	}
+		
+
 	public function guarda(){
 		$userModel=new UserModel($db);
 		$request= \Config\Services::request();
