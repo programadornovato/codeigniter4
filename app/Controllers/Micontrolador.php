@@ -80,6 +80,24 @@ class Micontrolador extends BaseController
 		
 	}
 
+	public function imagenManipulacion(){
+		$info=\Config\Services::image()
+		->withFile('codeigniter.jpg')
+		->getFile()
+		->getProperties(true);
+		$ancho=$info['width'];
+		$alto=$info['height'];
+
+		$imagen=\Config\Services::image()
+		->withFile('codeigniter.jpg')
+		->reorient()
+		//->rotate(90)
+		//->fit(250,250,'bottom-left')
+		//->resize($ancho/2,$alto/2)
+		->crop(300,300,50,0)
+		->save('codeigniter_p.jpg');
+		return view('estructura/imagen');
+	}
 	//--------------------------------------------------------------------
 
 }
